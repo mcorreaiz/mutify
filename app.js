@@ -7,6 +7,12 @@ var cors = require('cors')
 
 require('dotenv').config()
 
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://mongo-docker:27017/mutify_db');
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');

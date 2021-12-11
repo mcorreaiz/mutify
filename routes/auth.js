@@ -3,6 +3,8 @@ var router = express.Router();
 var request = require('request'); // "Request" library;
 var querystring = require('querystring');
 
+const User = require('../models/User');
+console.log(User)
 
 var client_id = process.env.CLIENT_ID
 var client_secret = process.env.CLIENT_SECRET
@@ -90,6 +92,9 @@ router.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
+          console.log(User)
+          const user = new User({name: body.display_name, email: body.email, password: access_token});
+          user.save().then((u) => {console.log(u)})
         });
 
         // we can also pass the token to the browser to make requests from there
