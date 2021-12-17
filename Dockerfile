@@ -4,10 +4,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+RUN mkdir -p /root/.ssh/ && ln -s /run/secrets/user_ssh_key /root/.ssh/id_rsa
+RUN echo "Host *.trabe.io\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
-CMD ["npm", "start"]
+CMD ["yarn", "dev"]
