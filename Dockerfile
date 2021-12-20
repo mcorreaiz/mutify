@@ -1,5 +1,7 @@
 FROM node:14.15.0
 
+RUN apt-get update && apt-get install -y fish
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
