@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const SpotifyItemSchema = require('./SpotifyItemSchema')
-const TrackFeaturesSchema = require('./SpotifyItemSchema')
+const TrackFeaturesSchema = require('./TrackFeaturesSchema')
 const extendSchema = require('../utils/extendSchema')
 const Artist = require('./Artist')
 const Album = require('./Album')
