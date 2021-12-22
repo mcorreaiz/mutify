@@ -1,7 +1,7 @@
 var request = require('request'); // "Request" library;
 var querystring = require('querystring');
 
-const User = require('../models/User');
+const User = require('../models/user');
 
 var client_id = process.env.CLIENT_ID
 var client_secret = process.env.CLIENT_SECRET

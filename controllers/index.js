@@ -1,4 +1,3 @@
-
 const auth = false
 
 const getIndex = (req, res, next) => {

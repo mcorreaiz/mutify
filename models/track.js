@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-const SpotifyItemSchema = require('./SpotifyItemSchema')
-const TrackFeaturesSchema = require('./TrackFeaturesSchema')
-const extendSchema = require('../utils/extendSchema')
-const Artist = require('./Artist')
-const Album = require('./Album')
+const SpotifyItemSchema = require('./spotify_item_schema')
+const TrackFeaturesSchema = require('./track_features_schema')
+const extendSchema = require('../utils/extend_schema')
+const Artist = require('./artist')
+const Album = require('./album')
 
 const schema = extendSchema(SpotifyItemSchema, {
     duration_ms: Number,
     artists: [Artist.schema],
-    album: Album,
+    album: Album.schema,
     popularity: Number,
     features: TrackFeaturesSchema
 });
