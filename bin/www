@@ -7,11 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('mutify:server');
 var http = require('http');
-const mongoose = require('mongoose');
+const { getUri, connect } = require("../db")
 
-mongoose.connect('mongodb://mongo-docker:27017/mutify_db');
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+/**
+ * Connect to Mongo
+ */
+const uri = await getUri()
+await connect({ uri })
 
 
 /**
