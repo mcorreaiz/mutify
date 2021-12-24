@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
   acousticness: Number,
@@ -11,4 +11,4 @@ const schema = new mongoose.Schema({
   valence: Number,
 });
 
-module.exports = schema;
+export default schema;

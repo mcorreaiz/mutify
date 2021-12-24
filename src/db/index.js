@@ -1,6 +1,6 @@
 
-const mongoose = require("mongoose")
-const { MongoMemoryServer } = require("mongodb-memory-server")
+import mongoose from 'mongoose';
+import { MongoMemoryServer } from 'mongodb-memory-server';
 
 const mongoServer = await MongoMemoryServer.create()
 
@@ -35,4 +35,4 @@ const closeDb = async () => {
     }
 }
 
-module.exports = { getUri, connect, closeDb }
+export default { getUri, connect, closeDb };

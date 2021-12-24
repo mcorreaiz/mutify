@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+export default {
   testEnvironment: 'node',
   // All imported modules in your tests should be mocked automatically
   // automock: false,

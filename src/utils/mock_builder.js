@@ -46,4 +46,4 @@ const Builder = {
     }),
 }
 
-module.exports = Builder
+export default Builder;

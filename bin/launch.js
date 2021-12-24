@@ -4,10 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('mutify:server');
-var http = require('http');
-const { getUri, connect } = require("../db")
+import app from '../app';
+
+import debugFactory from 'debug';
+const debug = debugFactory('mutify:server');
+import http from 'http';
+import { getUri, connect } from '../src/db/index.js';
 
 /**
  * Connect to Mongo

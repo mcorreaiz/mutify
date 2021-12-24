@@ -1,8 +1,8 @@
-const { storeTrack } = require("../repositories/tracks")
+import { storeTrack } from '../repositories/tracks.js';
 
 const postTracks = async (req, res, next) => {
     await storeTrack(req.body)
     res.status(201).json(req.body)
 }
 
-module.exports = { postTracks }
+export default { postTracks };

@@ -2,15 +2,22 @@
   "name": "mutify",
   "version": "0.0.0",
   "private": true,
-  "main": "./bin/www",
+  "main": "./bin/launch.js",
+  "type": "module",
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node ./bin/launch.js",
     "dev": "nodemon -L",
     "test": "jest",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|)\""
   },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
   "dependencies": {
+    "cjs-to-es6": "^1.1.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -23,6 +30,8 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
+    "babel-jest": "^27.4.5",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^25.3.0",

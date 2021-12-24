@@ -1,6 +1,6 @@
-var express = require('express');
-var request = require('request');
-var querystring = require('querystring');
+import express from 'express';
+import request from 'request';
+import querystring from 'querystring';
 
 const router = express.Router()
 
@@ -32,4 +32,4 @@ router.get('/', (req, res, next) => {
     });
 })
 
-module.exports = router;
+export default router;

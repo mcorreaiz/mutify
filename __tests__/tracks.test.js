@@ -1,11 +1,10 @@
-const request = require("supertest")
+import request from 'supertest';
+import app from '../app.js';
+import mock from '../src/utils/mock_builder.js';
+import { storeTrack } from '../src/repositories/tracks.js';
+import { getUri, connect, closeDb } from '../src/db/index.js';
 
-const app = require("../app")
-const mock = require("../utils/mock_builder")
-const { storeTrack } = require("../repositories/tracks")
-const { getUri, connect, closeDb } = require("../db")
-
-jest.mock("../repositories/tracks")
+jest.mock("../src/repositories/tracks.js")
 
 beforeAll(async () => {
     const uri = await getUri()

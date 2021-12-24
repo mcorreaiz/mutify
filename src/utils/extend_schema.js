@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 
 const extendSchema = (Schema, obj) => (
@@ -7,4 +7,4 @@ const extendSchema = (Schema, obj) => (
     )
 );
 
-module.exports = extendSchema
+export default extendSchema;

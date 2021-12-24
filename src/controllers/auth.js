@@ -1,7 +1,6 @@
-var request = require('request'); // "Request" library;
-var querystring = require('querystring');
-
-const User = require('../models/user');
+import request from 'request'; // "Request" library;
+import querystring from 'querystring';
+import User from '../models/user.js';
 
 var client_id = process.env.CLIENT_ID
 var client_secret = process.env.CLIENT_SECRET
@@ -138,7 +137,7 @@ const getRefreshToken = (req, res) => {
 };
 
 
-module.exports = {
+export default {
     getAuth,
     getLogin,
     getCallback,

@@ -1,16 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors = require('cors')
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import cors from 'cors';
 
 require('dotenv').config()
 
-var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth');
-var playlistsRouter = require('./routes/playlists');
-var tracksRouter = require('./routes/tracks');
+import indexRouter from './src/routes/index.js';
+import authRouter from './src/routes/auth.js';
+import playlistsRouter from './src/routes/playlists.js';
+import tracksRouter from './src/routes/tracks.js';
 
 var app = express();
 
@@ -46,4 +46,4 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;

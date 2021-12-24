@@ -1,4 +1,4 @@
-const Schema = require('mongoose').Schema;
+import { Schema } from 'mongoose';
 
 const schema = new Schema({
     name: String,
@@ -8,4 +8,4 @@ const schema = new Schema({
     uri: String
 });
 
-module.exports = schema;
+export default schema;
