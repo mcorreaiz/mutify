@@ -2,17 +2,18 @@
 import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 
-const mongoServer = await MongoMemoryServer.create()
+var mongoServer;
 
-const getUri = async () => {
+export const getUri = async () => {
     if (process.env.NODE_ENV === "test") {
+        mongoServer = mongoServer || await MongoMemoryServer.create()
         return mongoServer.getUri()
     }
 
     return process.env.DB_URI
 }
 
-const connect = async ({ uri }) => {
+export const connect = async ({ uri }) => {
     const mongooseOpts = {
         useUnifiedTopology: true,
         useNewUrlParser: true,
@@ -27,12 +28,10 @@ const connect = async ({ uri }) => {
     mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 }
 
-const closeDb = async () => {
+export const closeDb = async () => {
     await mongoose.disconnect()
 
     if (process.env.NODE_ENV === "test") {
         await mongoServer.stop()
     }
 }
-
-export default { getUri, connect, closeDb };

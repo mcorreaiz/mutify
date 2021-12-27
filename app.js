@@ -4,8 +4,10 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import "regenerator-runtime/runtime";
 
-require('dotenv').config()
+dotenv.config()
 
 import indexRouter from './src/routes/index.js';
 import authRouter from './src/routes/auth.js';
@@ -14,8 +16,9 @@ import tracksRouter from './src/routes/tracks.js';
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const __dirname = path.resolve();
+
+app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));

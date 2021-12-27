@@ -2,9 +2,9 @@ import request from 'request'; // "Request" library;
 import querystring from 'querystring';
 import User from '../models/user.js';
 
-var client_id = process.env.CLIENT_ID
-var client_secret = process.env.CLIENT_SECRET
-var redirect_uri = process.env.REDIRECT_URI
+const client_id = process.env.CLIENT_ID
+const client_secret = process.env.CLIENT_SECRET
+const redirect_uri = process.env.REDIRECT_URI
 
 /**
  * Generates a random string containing numbers and letters
@@ -24,12 +24,12 @@ const generateRandomString = (length) => {
 var stateKey = 'spotify_auth_state';
 var tokenCookie = 'spotify_access_token';
 
-const getAuth = (req, res, next) => {
+export const getAuth = (req, res, next) => {
     res.render('auth');
 };
 
 /* GET home page. */
-const getLogin = (req, res, next) => {
+export const getLogin = (req, res, next) => {
     var state = generateRandomString(16);
     res.cookie(stateKey, state);
 
@@ -45,7 +45,7 @@ const getLogin = (req, res, next) => {
         }));
 };
 
-const getCallback = (req, res) => {
+export const getCallback = (req, res) => {
 
     // your application requests refresh and access tokens
     // after checking the state parameter
@@ -112,7 +112,7 @@ const getCallback = (req, res) => {
     }
 };
 
-const getRefreshToken = (req, res) => {
+export const getRefreshToken = (req, res) => {
 
     // requesting access token from refresh token
     var refresh_token = req.query.refresh_token;
@@ -134,12 +134,4 @@ const getRefreshToken = (req, res) => {
             });
         }
     });
-};
-
-
-export default {
-    getAuth,
-    getLogin,
-    getCallback,
-    getRefreshToken
 };

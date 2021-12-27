@@ -11,12 +11,19 @@ services:
     env_file:
       - .env
     secrets:
-      - user_ssh_key
+      - ssh_key
+    volumes:
+      - src:/code
   mongo:
     container_name: mongo-docker
     image: mongo
     ports:
       - '27017:27017'
+    volumes:
+      - db_data:/data/mongodb
 secrets:
-  user_ssh_key:
+  ssh_key:
     file: ~/.ssh/id_rsa
+volumes:
+  src: null
+  db_data: null

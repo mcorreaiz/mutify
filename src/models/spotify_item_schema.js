@@ -1,6 +1,6 @@
-import { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
-const schema = new Schema({
+const schema = new mongoose.Schema({
     name: String,
     spotify_url: String,
     href: String,
