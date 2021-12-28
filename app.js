@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import "regenerator-runtime/runtime";
+import "regenerator-runtime/runtime.js";
 
 dotenv.config()
 
